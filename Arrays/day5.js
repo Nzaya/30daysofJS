@@ -328,8 +328,8 @@
 
 //! Exercise: Brain Booster Questions
 //? Level 1
-const countries = ['Albania','Bolivia','Canada','Denmark','Ethiopia','Finland','Germany','Hungary','Ireland','Japan','Kenya'] 
-const webTechs = ['HTML','CSS','JavaScript','React','Redux','Node','MongoDB']
+// const countries = ['Albania','Bolivia','Canada','Denmark','Ethiopia','Finland','Germany','Hungary','Ireland','Japan','Kenya'] 
+// const webTechs = ['HTML','CSS','JavaScript','React','Redux','Node','MongoDB']
 
 // Declare an empty array;
 const arr = Array()
@@ -442,50 +442,146 @@ console.log(coomp);
 
 // Remove all IT companies
 
+// Companies = ['Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon']
+
+// function isNotITCompany(company){
+//     const lowerCompany = company.toLowerCase();
+//     return !(lowerCompany.includes('it') || lowerCompany.includes('information technology'));
+//     }
+
+// const nonITCompanies = Companies.filter(isNotITCompany);
+// const nonITCompanyNames = nonITCompanies.map(company => company.name);
+// console.log(nonITCompanyNames);
+
 //? Exercise: Level 2
 // Create a separate countries.js file and store the countries array in to this file, create a separate file web_techs.js and store the webTechs array in to this file. Access both file in main.js file
 
 
 // First remove all the punctuations and change the string to array and count the number of words in the array
-// let text =
-// 'I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.'
-// console.log(words)
-// console.log(words.length)
 // ["I", "love", "teaching", "and", "empowering", "people", "I", "teach", "HTML", "CSS", "JS", "React", "Python"]
 // 13
 
+let text = 'I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.'
+//remove punctuation
+text = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+console.log(text);
+const wordArray = text.split(' ')
+console.log(wordArray);
+console.log(wordArray.length)
 
 // In the following shopping cart add, remove, edit items
-// const shoppingCart = ['Milk', 'Coffee', 'Tea', 'Honey']
+const shoppingCart = ['Milk', 'Coffee', 'Tea', 'Honey']
 // add 'Meat' in the beginning of your shopping cart if it has not been already added
+shoppingCart.push('Meat')
+console.log(shoppingCart);
+
 // add Sugar at the end of you shopping cart if it has not been already added
+shoppingCart.push('Sugar')
+console.log(shoppingCart);
+
 // remove 'Honey' if you are allergic to honey
+honey = shoppingCart.indexOf('Honey')
+if(honey !== -1){
+    shoppingCart.splice(honey, 1)
+}
+console.log(shoppingCart);
 // modify Tea to 'Green Tea'
+shoppingCart[2]= 'Green Tea'
+console.log(shoppingCart);
 
 
 // In countries array check if 'Ethiopia' exists in the array if it exists print 'ETHIOPIA'. If it does not exist add to the countries list.
-
+const countries = ['Albania','Bolivia','Canada','Denmark','Ethiopia','Finland','Germany','Hungary','Ireland','Japan','Kenya'] 
+if(countries.includes('Ethiopia')){
+    console.log('Ethiopia'.toUpperCase());
+} else{
+    countries.push('Ethiopia')
+}
 
 // In the webTechs array check if Sass exists in the array and if it exists print 'Sass is a CSS preprocess'. If it does not exist add Sass to the array and print the array.
+const webTechs = ['HTML','CSS','JavaScript','React','Redux','Node','MongoDB']
+if(webTechs.includes('Sass')){
+    console.log('Sass is a CSS preprocess');
+}else {
+    webTechs.push('Sass')
+}
+console.log(webTechs);
 
 
 // Concatenate the following two variables and store it in a fullStack variable.
-// const frontEnd = ['HTML', 'CSS', 'JS', 'React', 'Redux']
-// const backEnd = ['Node','Express', 'MongoDB']
-// console.log(fullStack)
-// ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"]
+const frontEnd = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+const backEnd = ['Node','Express', 'MongoDB']
+
+const fullstack = frontEnd.concat(backEnd)
+console.log(fullstack)
 
 //? Exercise: Level 3
 // The following is an array of 10 students ages:
-// const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
 // Sort the array and find the min and max age
-// Find the median age(one middle item or two middle items divided by two)
-// Find the average age(all items divided by number of items)
-// Find the range of the ages(max minus min)
-// Compare the value of (min - average) and (max - average), use abs() method 1.Slice the first ten countries from the countries array
+console.log(ages.sort());
+minAge = Math.min(...ages)
+console.log(minAge);
 
+// Find the median age(one middle item or two middle items divided by two)
+// sortedAges = ages.sort((a,b) => a-b);
+// let middleIndex;
+
+// if(sortedAges.length % 2 === 0){
+//     middleIndex = sortedAges.length / 2;
+//     const middleValue1 = sortedAges[middleIndex - 1];
+//     const middleValue2 = sortedAges[middleIndex];
+//     medianAge = (middleValue1 + middleValue2) / 2;
+// } else {
+//     middleIndex = Math.floor(sortedAges.length / 2);
+//     medianAge = sortedAges[middleIndex];
+// }
+
+// console.log(medianAge);
+
+// Find the average age(all items divided by number of items)
+const sumOfAges = ages.reduce((acc, age) => acc + age, 0)
+const average = sumOfAges / ages.length
+console.log(average);
+
+// Find the range of the ages(max minus min)
+// const maxAge = Math.max(...ages);
+// const minAge = Math.min(...ages);
+// //range
+// const ageRange = maxAge - minAge 
+// console.log(ageRange);
+
+// Compare the value of (min - average) and (max - average), use abs() method 
+// Calculate the absolute differences
+
+// const absMinDiff = Math.abs(minAge - average)
+// const absMaxDiff = Math.abs(maxAge - average)
+
+// if(absMinDiff > absMaxDiff){
+//     console.log(`The absolute difference (min - average) is greater.`);
+// } else if (absMaxDiff < absMaxDiff){
+//     console.log(`The absolute difference (max - average) is greater.`);
+// } else {
+//     console.log(`The absolute differences are equal.`);
+// }
+
+// 1.Slice the first ten countries from the countries array
+const countriess = ['Albania','Bolivia','Canada','Denmark','Ethiopia','Finland','Germany','Hungary','Ireland','Japan','Kenya'] 
+console.log(countriess.slice(0,10));
 
 // Find the middle country(ies) in the countries array
-
+// midCountry = Math.floor(countriess.length / 2)
+// if(midCountry.length % 2 === 0){
+//     countriess.splice(midCountry, 1)
+// } else {
+//     countriess.splice(-1, 3)
+// }
+// console.log(midCountry);
 
 // Divide the countries array into two equal arrays if it is even. If countries array is not even , one more country for the first half.
+if(countriess.length % 2 === 0){
+    console.log('Even countries');
+} else {
+    countriess.push('Uganda')
+}
+console.log(countriess);

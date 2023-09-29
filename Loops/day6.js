@@ -112,7 +112,6 @@
 
 //! 💻 Exercises:Day 6
 //? Exercises: Level 1
-const countries = ['Albania','Bolivia','Canada','Denmark','Ethiopia','Finland','Germany','Hungary','Ireland','Japan','Kenya']  
 const webTechs = ['HTML','CSS','JavaScript','React','Redux','Node','MongoDB']  
 const mernStack = ['MongoDB', 'Express', 'React', 'Node']
 
@@ -275,20 +274,265 @@ console.log(`sum of odd numbers is ${sumOdd}`);
 
 // Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds. Print sum of evens and sum of odds as array
 //   [2550, 2500]
-
-// for (let i = 0; i <= 100; i++) {
-//     if(i % 2 === 0){
-//        sumEven += i;
-//     } else{
-//        sumOdd += i;
-//     }    
-// }
 const sums = `${sumEven}, ${sumOdd}`.split(',')
 console.log(sums);
 
 // Develop a small script which generate array of 5 random numbers
+// num = Math.floor(Math.random() * 11)
+// console.log(num);
+for (let i = 1; i <= 5; i++) {
+    num = Math.floor(Math.random(i) * 11)
+    console.log(num)    
+}
 
 // Develop a small script which generate array of 5 random numbers and the numbers must be unique
+count = 5
+min = 1
+max = 100
+uniqueNumbers = []
+
+if (count > max - min + 1) {
+    throw new Error ("Cannot generate unique numbers. Range is too small")    
+}
+
+while (uniqueNumbers.length < count){
+    const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    if(!uniqueNumbers.includes(randomNum)){
+        uniqueNumbers.push(randomNum)
+    }
+}
+console.log(uniqueNumbers);
 
 // Develop a small script which generate a six characters random id:
 // 5j2khz
+
+//Number.MAX_SAFE_INTEGER is a JavaScript constant representing the largest integer that can be safely represented without loss of precision. It's a very large number.
+function max_random_number(max){
+    return Math.floor(Math.random()* max)
+}
+
+for (let i =0; i< 1; i++){
+    console.log(max_random_number(Number.MAX_SAFE_INTEGER).toString(36));  
+}
+console.log('########################');
+
+
+//? Exercises: Level 2
+// Develop a small script which generate any number of characters random id:
+//   fe3jo1gl124g
+//   xkqci4utda1lmbelpkm03rba
+
+const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+let result = '';
+
+function generateString(length){
+    const charactersLength = characters.length;
+
+    for(let i = 0; i < length; i ++){
+        const randomIndex = Math.floor(Math.random() * charactersLength);
+        result += characters.charAt(randomIndex)
+    }
+
+    return result;
+}
+
+console.log(generateString(7));
+console.log(generateString(10));
+
+
+// Write a script which generates a random hexadecimal number.
+// '#ee33df'
+
+const hexNumbers ="012389ab4567def"
+let hex = '';
+
+for(let i = 0; i < 6; i++){
+    const randomHex = Math.floor(Math.random() * 11)
+    nowHex = hex += hexNumbers.charAt(randomHex)
+}
+
+console.log(` #${nowHex}`);
+
+
+
+// Write a script which generates a random rgb color number.
+// rgb(240,180,80)
+
+function generateRandomRGBColor(){
+    let rgbColor = "rgb(";
+    for(i = 0; i < 3; i++){
+        const value = Math.floor(Math.random() * 256 ); // Generate a random value between 0 and 255
+        rgbColor += value;
+        if(i < 2){
+            rgbColor += ", ";  // Add a comma and space if it's not the last channel
+        } else {
+            rgbColor += ")" // Close the RGB color string with a closing parenthesis if it's the last channel
+        }
+    }
+    return rgbColor;
+}
+
+const randomColor = generateRandomRGBColor();
+console.log(randomColor);
+
+
+// Using the above countries array, create the following new array.
+// ["ALBANIA", "BOLIVIA", "CANADA", "DENMARK", "ETHIOPIA", "FINLAND", "GERMANY", "HUNGARY", "IRELAND", "JAPAN", "KENYA"]
+
+const countries = ['Albania','Bolivia','Canada','Denmark','Ethiopia','Finland','Germany','Hungary','Ireland','Japan','Kenya'];
+let newCountries = countries.toString().toUpperCase()
+let arrCountries = newCountries.split(",")
+console.log(arrCountries);
+
+
+// Using the above countries array, create an array for countries length'.
+// [7, 7, 6, 7, 8, 7, 7, 7, 7, 5, 5]
+
+const countryLength = countries.map(country => country.length);
+console.log(countryLength);
+
+
+// Use the countries array to create the following array of arrays:
+//   [
+//   ['Albania', 'ALB', 7],
+//   ['Bolivia', 'BOL', 7],
+//   ['Canada', 'CAN', 6],
+//   ['Denmark', 'DEN', 7],
+//   ['Ethiopia', 'ETH', 8],
+//   ['Finland', 'FIN', 7],
+//   ['Germany', 'GER', 7],
+//   ['Hungary', 'HUN', 7],
+//   ['Ireland', 'IRE', 7],
+//   ['Iceland', 'ICE', 7],
+//   ['Japan', 'JAP', 5],
+//   ['Kenya', 'KEN', 5]
+// ]
+
+const formattedCountrys = countries.map(country => {
+    countryCode = country.slice(0,3).toUpperCase()
+    countryLengths = country.length
+    return[country, countryCode, countryLengths]
+})
+console.log("formattedCountries1", formattedCountrys);
+
+formattedCountries = []
+for(i = 0; i < countries.length; i++){
+    const country = countries[i];
+    const countryCode = country.slice(0,3).toUpperCase()
+    const countryLengths = country.length
+    const countryInfo = [country, countryCode, countryLengths]
+    formattedCountries.push(countryInfo)
+}
+console.log("formattedCountries2", formattedCountries);
+
+
+// In above countries array, check if there is a country or countries containing the word 'land'. If there are countries containing 'land', print it as array. If there is no country containing the word 'land', print 'All these countries are without land'.
+// ['Finland','Ireland', 'Iceland']
+
+
+landCountries = []
+for(i = 0; i < countries.length; i++){
+    const country = countries[i];
+    if(country.toLowerCase().includes('land')){
+        landCountries.push(country)
+    }
+}
+
+if(landCountries.length > 0){
+    console.log(landCountries)
+} else {
+    console.log("All this countries are without land");
+}
+
+
+// In above countries array, check if there is a country or countries end with a substring 'ia'. If there are countries end with, print it as array. If there is no country containing the word 'ai', print 'These are countries ends without ia'.
+// ['Albania', 'Bolivia','Ethiopia']
+
+iaCountries = []
+for(i = 0; i < countries.length; i++){
+    const country = countries[i]
+    if(country.toLowerCase().includes('ia')){
+        iaCountries.push(country)
+    }
+}
+
+if(iaCountries.length > 0 ){
+    console.log(iaCountries);
+} else {
+    console.log('These are countries ends without ia');
+}
+
+// Using the above countries array, find the country containing the biggest number of characters.
+// Ethiopia
+
+
+// Using the above countries array, find the country containing only 5 characters.
+// ['Japan', 'Kenya']
+
+
+
+// Find the longest word in the webTechs array
+
+
+
+// Use the webTechs array to create the following array of arrays:
+// [["HTML", 4], ["CSS", 3],["JavaScript", 10],["React", 5],["Redux", 5],["Node", 4],["MongoDB", 7]]
+
+
+
+
+// An application created using MongoDB, Express, React and Node is called a MERN stack app. Create the acronym MERN by using the array mernStack
+
+
+
+
+// Iterate through the array, ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"] using a for loop or for of loop and print out the items.
+
+
+
+
+// This is a fruit array , ['banana', 'orange', 'mango', 'lemon'] reverse the order using loop without using a reverse method.
+
+
+
+// Print all the elements of array as shown below.
+//   const fullStack = [
+//     ['HTML', 'CSS', 'JS', 'React'],
+//     ['Node', 'Express', 'MongoDB']
+//   ]
+//   HTML
+//   CSS
+//   JS
+//   REACT
+//   NODE
+//   EXPRESS
+//   MONGODB
+
+
+
+//? Exercises: Level 3
+// Copy countries array(Avoid mutation)
+
+
+// Arrays are mutable. Create a copy of array which does not modify the original. Sort the copied array and store in a variable sortedCountries
+
+
+// Sort the webTechs array and mernStack array
+
+
+// Extract all the countries contain the word 'land' from the countries array and print it as array
+
+
+// Find the country containing the hightest number of characters in the countries array
+
+
+// Extract all the countries contain the word 'land' from the countries array and print it as array
+
+
+// Extract all the countries containing only four characters from the countries array and print it as array
+
+
+// Extract all the countries containing two or more words from the countries array and print it as array
+
+
+// Reverse the countries array and capitalize each country and stored it as an array

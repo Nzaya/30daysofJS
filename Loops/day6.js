@@ -112,9 +112,6 @@
 
 //! 💻 Exercises:Day 6
 //? Exercises: Level 1
-const webTechs = ['HTML','CSS','JavaScript','React','Redux','Node','MongoDB']  
-const mernStack = ['MongoDB', 'Express', 'React', 'Node']
-
 // Iterate 0 to 10 using for loop, do the same using while and do while loop
 //for loop
 for(let i = 0; i <= 10; i++){
@@ -465,41 +462,98 @@ if(iaCountries.length > 0 ){
 // Using the above countries array, find the country containing the biggest number of characters.
 // Ethiopia
 
+let longestCountry = ''
+
+for(let i = 0; i < countries.length; i++ ){
+    const country = countries[i]
+    if(country.length > longestCountry.length){
+        longestCountry = country
+    }
+}
+console.log(`The country with the longest name is ${longestCountry}`);
 
 // Using the above countries array, find the country containing only 5 characters.
 // ['Japan', 'Kenya']
 
+let fiveCountry = []
+
+for(let i = 0; i < countries.length; i++){
+    country = countries[i]
+    if(country.length === 5){
+        fiveCountry.push(country)
+    }
+}
+console.log(fiveCountry);
+
 
 
 // Find the longest word in the webTechs array
+const webTechs = ['HTML','CSS','JavaScript','React','Redux','Node','MongoDB']  
+
+longestWord = ''
+
+for(let i = 0; i < webTechs.length; i++){
+    web = webTechs[i]
+    if(web.length > webTechs.length){
+        longestWord = web
+    }
+}
+console.log(longestWord);
 
 
 
 // Use the webTechs array to create the following array of arrays:
 // [["HTML", 4], ["CSS", 3],["JavaScript", 10],["React", 5],["Redux", 5],["Node", 4],["MongoDB", 7]]
 
+webArray = []
 
+for( i = 0; i < webTechs.length; i++){
+    const web = webTechs[i]
+    const webLength = web.length
+    webInfo = [web, webLength]
+    webArray.push(webInfo)
+}
+console.log(webArray);
 
 
 // An application created using MongoDB, Express, React and Node is called a MERN stack app. Create the acronym MERN by using the array mernStack
+const mernStack = ['MongoDB', 'Express', 'React', 'Node']
 
+let acro = '';
 
+for(i = 0; i < mernStack.length; i++){
+    acro += mernStack[i][0]
+}
+
+console.log(acro);
 
 
 // Iterate through the array, ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"] using a for loop or for of loop and print out the items.
+//using For loop
+for(i = 0; i < webTechs.length; i++){
+    console.log(webTechs[i]);
+}
 
+console.log('---------------------');
 
-
+// for of loop
+for(const techItem of webTechs){
+    console.log(techItem);
+}
 
 // This is a fruit array , ['banana', 'orange', 'mango', 'lemon'] reverse the order using loop without using a reverse method.
+
+fruits = ['banana', 'orange', 'mango', 'lemon'] 
+reverseFruits = [];
+
+for(let i = fruits.length - 1; i >= 0; i--){
+    reverseFruits.push(fruits[i]);
+}
+console.log(reverseFruits);
 
 
 
 // Print all the elements of array as shown below.
-//   const fullStack = [
-//     ['HTML', 'CSS', 'JS', 'React'],
-//     ['Node', 'Express', 'MongoDB']
-//   ]
 //   HTML
 //   CSS
 //   JS
@@ -507,32 +561,110 @@ if(iaCountries.length > 0 ){
 //   NODE
 //   EXPRESS
 //   MONGODB
+const fullStack = [['HTML', 'CSS', 'JS', 'React'],['Node', 'Express', 'MongoDB']]
+
+for(i = 0; i< fullStack.length; i++){
+    stack = fullStack[i].toString()
+    console.log(stack);
+}
 
 
 
 //? Exercises: Level 3
 // Copy countries array(Avoid mutation)
+//Using spread operator
 
+const countriesCopy = [...countries]
+console.log("spreadOperator",countriesCopy);
+
+//using Array from
+const countryCopy = Array.from(countries)
+console.log("Array.from",countryCopy);
 
 // Arrays are mutable. Create a copy of array which does not modify the original. Sort the copied array and store in a variable sortedCountries
 
+sortedCountries = countryCopy.sort()
+console.log(sortedCountries);
 
 // Sort the webTechs array and mernStack array
+webTechCopy = [...webTechs]
+console.log(webTechCopy.sort());
 
+mernStackCopy = Array.from(mernStack)
+console.log(mernStackCopy.sort());
 
 // Extract all the countries contain the word 'land' from the countries array and print it as array
+
+copyLand = [];
+
+for(i = 0; i < countriesCopy.length; i++){
+    copy = countriesCopy[i]
+    if(copy.includes('land')){
+        copyLand.push(copy)
+    }
+}
+console.log(copyLand);
 
 
 // Find the country containing the hightest number of characters in the countries array
 
+longestcountry = ''
+
+for(i = 0; i < countriesCopy.length; i++){
+    longest = countriesCopy[i]
+    if(longest.length > countriesCopy.length){
+        longestCountry = longest
+    }
+}
+console.log(longestCountry);
 
 // Extract all the countries contain the word 'land' from the countries array and print it as array
+
+withland = []
+
+for(i = 0; i < countryCopy.length; i++){
+    hasLand = countriesCopy[i]
+    if(hasLand.includes('land')){
+        withland.push(hasLand)
+    }
+}
+console.log(withland);
 
 
 // Extract all the countries containing only four characters from the countries array and print it as array
 
+const fourCharacterCountries = [];
+
+for (let i = 0; i < countryCopy.length; i++) {
+  const country = countryCopy[i];
+  if (country.length === 4) {
+    fourCharacterCountries.push(country);
+  }
+}
+
+console.log(fourCharacterCountries);
+
 
 // Extract all the countries containing two or more words from the countries array and print it as array
 
+twoOrMore = [];
+
+for(let i = 0; i < countriesCopy.length; i++){
+    const country = countriesCopy[i]
+    if(country.length >= 2){
+        twoOrMore.push(country)
+    }
+}
+
+console.log(twoOrMore);
+
 
 // Reverse the countries array and capitalize each country and stored it as an array
+
+reverseCountries = []
+
+for(let i = countriesCopy.length - 1; i >=0 ; i--){
+    country = countriesCopy[i].toUpperCase()
+    reverseCountries.push(country)
+}
+console.log(reverseCountries);

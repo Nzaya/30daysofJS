@@ -369,18 +369,47 @@ console.log(largest(0,-10,-2));
 
 
 // Declare a function name printArray. It takes array as a parameter and it prints out each value of the array.
+function printArray(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+    }
+  }
+const myArr = [0,1,2,3]
+console.log(printArray(myArr));
 
+// padStart example...has to be 5 characters , if les replaced with zero
+// const originalString = '42'
+// const paddedString = originalString.padStart(5, '0')
+// console.log(paddedString);  //output: 00042
 
 // Write a function name showDateTime which shows time in this format: 08/01/2020 04:08 using the Date object.
 // showDateTime()
 // 08/01/2020 04:08
-
-
+//getMonth() - returns month as a zero-based index(0 for January, 11 for December) we add 1 to get the actual month number
+function showDateTime(){
+    const now = new Date();
+    const year = now.getFullYear()
+    const month = String(now.getMonth() + 1).padStart(2, '0')
+    const day = String(now.getDate()).padStart(2, '0')
+    const hours = String(now.getHours()).padStart(2, '0')
+    const minutes = String(now.getMinutes()).padStart(2, '0')
+    const formattedDateTime = `${month}/${day}/${year} ${hours}:${minutes};`
+    console.log(formattedDateTime);
+}
+showDateTime()
 
 // Declare a function name swapValues. This function swaps value of x to y.
 // swapValues(3, 4) // x => 4, y=>3
 // swapValues(4, 5) // x = 5, y = 4
 
+function swap(a, b){
+    //swap variables
+    temp = a
+    a = b
+    b = temp
+    return [a, b]
+}
+console.log('after swap:',swap(2,3));
 
 
 // Declare a function name reverseArray. It takes array as a parameter and it returns the reverse of the array (don't use method).
@@ -389,24 +418,107 @@ console.log(largest(0,-10,-2));
 // console.log(reverseArray(['A', 'B', 'C']))
 //['C', 'B', 'A']
 
+function reverseArray(arr){
+    const reverse = []
+    for(let i = arr.length - 1; i >= 0; i--){
+        reverse.push(arr[i])
+    }
+    return reverse
+}
+
+const originalArray = [5, 4, 3, 2, 1]
+const reversedArray = reverseArray(originalArray)
+console.log('originalArray:', originalArray);
+console.log('reversedArray:', reversedArray);
+
 
 
 // Declare a function name capitalizeArray. It takes array as a parameter and it returns the - capitalizedarray.
+function capitalizedArray(arr){
+    for(i = 0; i < arr.length; i++){
+        console.log(arr[i]);
+    }
+}
+const caps = ['MON', 'TUE']
+console.log(capitalizedArray(caps));
+
 
 // Declare a function name addItem. It takes an item parameter and it returns an array after adding the item
+function addItem(item, originalArray){
+    const newArray = [...originalArray, item]
+    return newArray
+
+}
+
+const initialArray = ['banana', 'orange']
+const newItem = 'shoes'
+const updatedArray = addItem(newItem, initialArray)
+console.log(updatedArray);
 
 // Declare a function name removeItem. It takes an index parameter and it returns an array after removing an item
+function removeItem(index, originalArray){
+    if( index < 0 || index >=originalArray.length){
+        return originalArray;
+    }
+
+    const newArray = [...originalArray]
+    newArray.splice(index, 1)
+    return newArray
+}
+
+const initArray = ['zebra', 'elephants', 'giraffes']
+const removeIndex = 1;
+const updateArray = removeItem(removeIndex, initArray)
+console.log(updateArray);
 
 // Declare a function name sumOfNumbers. It takes a number parameter and it adds all the numbers in that range.
+function sumOfNumbers(n){
+    if(n < 0){
+        return 0
+    }
+
+    let sum = 0;
+    for(let i = 1; i <= n; i++){
+        sum += 1
+    }
+    return sum
+}
+
+const numberToSum = 5
+const result = sumOfNumbers(numberToSum)
+console.log(result);
 
 // Declare a function name sumOfOdds. It takes a number parameter and it adds all the odd numbers in that - range.
+function sumOfOdds(n){
+    let sum = 0
+    for(let i = 1; i<= n; i++){
+        if(i % 2 !== 0){
+             sum += i;
+        } 
+    }
+
+}
+
+const results = sumOfOdds(10)
+console.log(results);
 
 // Declare a function name sumOfEven. It takes a number parameter and it adds all the even numbers in that - range.
+function sumOfEven(n){
+    let sum = 0
+    for(let i = 1; i <= n; i++){
+        if(i % 2 === 0){
+            sum += i;
+        }
+    }
+}
+console.log(sumOfEven(10));
+
 
 // Declare a function name evensAndOdds . It takes a positive integer as parameter and it counts number of evens and odds in the number.
 // evensAndOdds(100);
 // The number of odds are 50.
 // The number of evens are 51.
+
 
 
 // Write a function which takes any number of arguments and return the sum of the arguments

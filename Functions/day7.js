@@ -519,14 +519,48 @@ console.log(sumOfEven(10));
 // The number of odds are 50.
 // The number of evens are 51.
 
+function evensAndOdds(n){
+    let even = 0;
+    let odd = 0;
+
+    for(let i = 1; i<= n; i++){
+        if(i % 2 === 0){
+            even++;
+        } else {
+            odd++;
+        }
+    }
+    return `The number of odds are ${odd}.\n The number of evens are ${even}`
+   
+}
+
+const resultss = evensAndOdds(100)
+console.log(resultss);
+
 
 
 // Write a function which takes any number of arguments and return the sum of the arguments
 // sum(1, 2, 3) // -> 6
 // sum(1, 2, 3, 4) // -> 10
+function sumOfArgs(...args){
+    let totalSum = 0;
+    args.forEach((args) =>{
+        totalSum+=args;
+    })
+    return totalSum;
+}
 
+console.log(sumOfArgs(1, 2, 3))
+console.log(sumOfArgs(1,2,3,4));
 
 // Write a function which generates a randomUserIp.
+function randomUserIP(){
+    const octet = () => Math.floor(Math.random() * 256)
+    return `${octet()}.${octet()}.${octet()}.${octet()}`
+}
+
+randomIP = randomUserIP()
+console.log(randomIP);
 
 // Write a function which generates a randomMacAddress
 
@@ -534,12 +568,36 @@ console.log(sumOfEven(10));
 // console.log(randomHexaNumberGenerator());
 // '#ee33df'
 
+let hexNumber = '0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F'
+let hex = ''
+function randomHexaNumberGenerator(){
+    for(i = 0; i < 6; i++){
+        const randomHex = Math.floor(Math.random() * 11)
+        nowHex = hex += hexNumber.charAt(randomHex)
+    }
+    return randomHexaNumberGenerator
+}
+
+console.log(randomHexaNumberGenerator(`#{nowHex}`));
+
 
 
 // Declare a function name userIdGenerator. When this function is called it generates seven character id. The function return the id.
 // console.log(userIdGenerator());
 // 41XTDbE
 
+function userIdGenerator(){
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    let userId = '';
+
+    for(let i = 0; i < 7; i++){
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        userId += characters.charAt(randomIndex)
+    }
+    return userId;
+}
+const generateId = userIdGenerator();
+console.log(generateId);
 
 
 //? Exercises: Level 3

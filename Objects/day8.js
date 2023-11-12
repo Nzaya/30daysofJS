@@ -379,129 +379,289 @@ const users = {
 }
 // Find the person who has many skills in the users object.
 
-const findPersonWithManySkills = (users) => {
-  let maxSkillsCount = 0;
-  let personName = '';
 
-  for(const username in users){
-    const user = users[username]
-    if(user.skills.length > maxSkillsCount){
-      personName = username;
-      maxSkillsCount = user.skills.length;
-    }
+let mostSkilledPerson = null;
+let maxSkills = 0;
 
+// Get an array of user usernames
+const usernames = Object.keys(users);
+
+usernames.forEach(username => {
+  const user = users[username];
+  if (user.skills.length > maxSkills) {
+    mostSkilledPerson = username;
+    maxSkills = user.skills.length;
   }
-  if(personName){
-    console.log(`${personName} is the most skilled person with ${maxSkillsCount}`);
-  } else {
-    console.log('No users found in the object');
-  }
+});
+
+if (mostSkilledPerson) {
+  console.log(`${mostSkilledPerson} is the most skilled person with ${maxSkills} skills.`);
+} else {
+  console.log('No users found in the object.');
 }
 
 // Count logged in users, count users having greater than equal to 50 points from the following object.
 
+loggedUsers = 0;
+pointsFifty = 0;
+
+for(username in users){
+  let user = users[username]
+
+  if(user.isLoggedIn === true){
+    loggedUsers++
+  }
+  if(user.points >= 50){
+    pointsFifty++
+  }
+}
+console.log(loggedUsers);
+console.log(pointsFifty);
+
 
 // Find people who are MERN stack developer from the users object
 
+function hasMERNStack(user){
+  const requiresSkill = ['MongoDB', 'Express', 'React', 'Node.js']
+  if(users.skills === requiresSkill){
+    return user
+  }
+  // return requiresSkill.every(skill => user.skills.includes(skill))
+}
+
+hasMERNStack()
+
+const mernStackUsers = Object.keys(users).filter(username => hasMERNStack(users[username]))
+console.log("mernStackUsers",mernStackUsers);
+
+
 
 // Set your name in the users object without modifying the original users object
-
+ users.Doe ={
+  email: 'doe@gmail.com',
+  skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'Angular', 'Node'],
+  age: 22,
+  isLoggedIn: true,
+  points: 50
+ }
+ console.log("users", users);
 
 // Get all keys or properties of users object
-
+let keyss = Object.keys(users)
+console.log(keyss);
 
 // Get all the values of users object
-
+let valuess = Object.values(users)
+console.log(valuess);
 
 // Use the countries object to print a country name, capital, populations and languages.
 
 
 //? Exercises: Level 3
-// Create an object literal called personAccount. It has firstName, lastName, incomes, expenses properties and it has totalIncome, totalExpense, accountInfo,addIncome, addExpense and accountBalance methods. Incomes is a set of incomes and its description and expenses is a set of incomes and its description.
+// Create an object literal called personAccount. It has firstName, lastName, incomes, expenses properties and it has totalIncome, totalExpense, accountInfo,addIncome, addExpense and accountBalance methods. 
+// Incomes is a set of incomes and its description and expenses is a set of incomes and its description.
 
-// Questions:2, 3 and 4 are based on the following two arrays:users and products ()
-//     const users = [
-//     {
-//         _id: 'ab12ex',
-//         username: 'Alex',
-//         email: 'alex@alex.com',
-//         password: '123123',
-//         createdAt:'08/01/2020 9:00 AM',
-//         isLoggedIn: false
-//     },
-//     {
-//         _id: 'fg12cy',
-//         username: 'Asab',
-//         email: 'asab@asab.com',
-//         password: '123456',
-//         createdAt:'08/01/2020 9:30 AM',
-//         isLoggedIn: true
-//     },
-//     {
-//         _id: 'zwf8md',
-//         username: 'Brook',
-//         email: 'brook@brook.com',
-//         password: '123111',
-//         createdAt:'08/01/2020 9:45 AM',
-//         isLoggedIn: true
-//     },
-//     {
-//         _id: 'eefamr',
-//         username: 'Martha',
-//         email: 'martha@martha.com',
-//         password: '123222',
-//         createdAt:'08/01/2020 9:50 AM',
-//         isLoggedIn: false
-//     },
-//     {
-//         _id: 'ghderc',
-//         username: 'Thomas',
-//         email: 'thomas@thomas.com',
-//         password: '123333',
-//         createdAt:'08/01/2020 10:00 AM',
-//         isLoggedIn: false
-//     }
-//     ];
-
-//     const products = [
+// personAccount = [
 //   {
-//     _id: 'eedfcf',
-//     name: 'mobile phone',
-//     description: 'Huawei Honor',
-//     price: 200,
-//     ratings: [
-//       { userId: 'fg12cy', rate: 5 },
-//       { userId: 'zwf8md', rate: 4.5 }
-//     ],
-//     likes: []
-//   },
-//   {
-//     _id: 'aegfal',
-//     name: 'Laptop',
-//     description: 'MacPro: System Darwin',
-//     price: 2500,
-//     ratings: [],
-//     likes: ['fg12cy']
-//   },
-//   {
-//     _id: 'hedfcg',
-//     name: 'TV',
-//     description: 'Smart TV:Procaster',
-//     price: 400,
-//     ratings: [{ userId: 'fg12cy', rate: 5 }],
-//     likes: ['fg12cy']
+//     firstName: "Jane",
+//     lastName: "Doe",
+//     totalExpense: 1200,
+//     accountInfo: "debit",
+//     addIncome:""
 //   }
 // ]
 
+// Questions:2, 3 and 4 are based on the following two arrays:users and products ()
+    const userss = [
+    {
+        _id: 'ab12ex',
+        username: 'Alex',
+        email: 'alex@alex.com',
+        password: '123123',
+        createdAt:'08/01/2020 9:00 AM',
+        isLoggedIn: false
+    },
+    {
+        _id: 'fg12cy',
+        username: 'Asab',
+        email: 'asab@asab.com',
+        password: '123456',
+        createdAt:'08/01/2020 9:30 AM',
+        isLoggedIn: true
+    },
+    {
+        _id: 'zwf8md',
+        username: 'Brook',
+        email: 'brook@brook.com',
+        password: '123111',
+        createdAt:'08/01/2020 9:45 AM',
+        isLoggedIn: true
+    },
+    {
+        _id: 'eefamr',
+        username: 'Martha',
+        email: 'martha@martha.com',
+        password: '123222',
+        createdAt:'08/01/2020 9:50 AM',
+        isLoggedIn: false
+    },
+    {
+        _id: 'ghderc',
+        username: 'Thomas',
+        email: 'thomas@thomas.com',
+        password: '123333',
+        createdAt:'08/01/2020 10:00 AM',
+        isLoggedIn: false
+    }
+    ];
 
-// Imagine you are getting the above users collection from a MongoDB database. a. Create a function called signUp which allows user to add to the collection. If user exists, inform the user that he has already an account.
+    const products = [
+  {
+    _id: 'eedfcf',
+    name: 'mobile phone',
+    description: 'Huawei Honor',
+    price: 200,
+    ratings: [
+      { userId: 'fg12cy', rate: 5 },
+      { userId: 'zwf8md', rate: 4.5 }
+    ],
+    likes: []
+  },
+  {
+    _id: 'aegfal',
+    name: 'Laptop',
+    description: 'MacPro: System Darwin',
+    price: 2500,
+    ratings: [],
+    likes: ['fg12cy']
+  },
+  {
+    _id: 'hedfcg',
+    name: 'TV',
+    description: 'Smart TV:Procaster',
+    price: 400,
+    ratings: [{ userId: 'fg12cy', rate: 5 }],
+    likes: ['fg12cy']
+  }
+]
 
+
+// Imagine you are getting the above users collection from a MongoDB database. 
+// a. Create a function called signUp which allows user to add to the collection. If user exists, inform the user that he has already an account.
+
+function signUp(newUser){
+  //Check if user already exists
+  const existingUser = userss.find(user => user._id === newUser._id);
+
+  if(existingUser){
+    console.log(`User with _id ${newUser._id} already has an account`);
+  } else {
+    //Add new user to collection
+    userss.push(newUser)
+    console.log(`Users with _id ${newUser._id} added to the collection`);
+  }
+}
+
+const newUser = {
+  _id: 'abcd123',
+  username: 'NewUser',
+  email: 'newuser@mail.com',
+  password: 'password123',
+  createdAt:'08/01/2022 10:30 AM',
+  isLoggedIn: false
+}
+
+signUp(newUser)
+
+console.log("userss",userss);
 
 // b. Create a function called signIn which allows user to sign in to the application
+function signIn(users, userId){
+  //check if user exist in db
+  const user = userss.find(user => user._id === userId)
 
+  if(user){
+    //if exixts sign in
+    console.log(`User ${user.username} can log in`);
+  } else {
+    console.log(`Please register to log in. User not found`);
+  }
+}
 
-// The products array has three elements and each of them has six properties. a. Create a function called rateProduct which rates the product b. Create a function called averageRating which calculate the average rating of a product
+signIn(users, 'abcd123')
+// The products array has three elements and each of them has six properties. 
+// a. Create a function called rateProduct which rates the product 
+function rateProduct(products, productId, userId, rating){
+  //find product with it's id
+  const product = products.find(product => product._id === productId)
+  if(product){
+    //check if user has rated the product
+    const existingRating = product.ratings.find(r => r.userId === userId)
+
+    if(existingRating){
+      console.log(`User ${userId} has already rated this product`);
+    } else {
+      //Add new rating to the product
+      products.ratings.push({userId, rate: rating})
+      console.log(`product ${productId} rated by user ${userId} with rating ${rating}`);
+    }
+
+  } else {
+    console.log(`Product with ID ${productId} not found`);
+  }
+}
+
+rateProduct(products, 'hedfcg', 'fg12cy', 5)
+// b. Create a function called averageRating which calculate the average rating of a product
+function averageRating(products, productId){
+  //Find product with its id
+
+  const product = products.find(product => product._id === productId)
+
+  if(product){
+    //Calculate average
+
+    const ratings = product.ratings
+
+    if(ratings.length > 0){
+      const sumOfRatings = ratings.reduce((sum, rating) => sum + rating.rate, 0)
+      const avgRating = sumOfRatings / ratings.length
+      console.log(`The average rating of product ${productId} is ${avgRating.toFixed(2)}`);
+    } else {
+      console.log(`Product ${productId} has no ratings yet`);
+    }
+  } else {
+    console.log(`Product with ID ${productId} not found`);
+  } 
+}
+
+averageRating(products, 'aegfal')
 
 
 // Create a function called likeProduct. This function will helps to like to the product if it is not liked and remove like if it was liked.
+
+function likeProduct(products, productId, userId){
+  //serach for product with id
+  let product = products.find(product => product._id === productId)
+
+  if(product){
+    //Check if user has already liked the product
+    const userLiked = product.likes.indexOf(userId)
+
+    if(userLiked !== -1){
+      //User has liked so unlike it
+      product.likes.splice(userLiked, 1)
+      console.log(`User ${userId} unliked the product ${productId}`);
+    } else {
+      //User has not liked, so like the product
+      product.likes.push(userId)
+      console.log(`User ${userId} liked the product ${productId}`);
+    }
+    
+  } else {
+    console.log(`Product with ID ${productId} not found`);
+  }
+}
+
+likeProduct(products, 'hedfcg', 'fg12cy')
 

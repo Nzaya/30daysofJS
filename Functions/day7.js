@@ -375,7 +375,7 @@ function printArray(arr) {
     }
   }
 const myArr = [0,1,2,3]
-console.log(printArray(myArr));
+printArray(myArr);
 
 // padStart example...has to be 5 characters , if les replaced with zero
 // const originalString = '42'
@@ -435,11 +435,13 @@ console.log('reversedArray:', reversedArray);
 
 // Declare a function name capitalizeArray. It takes array as a parameter and it returns the - capitalizedarray.
 function capitalizedArray(arr){
+    let mynewArr = []
     for(i = 0; i < arr.length; i++){
-        console.log(arr[i]);
+        mynewArr.push(arr[i].toUpperCase())
     }
+    return mynewArr
 }
-const caps = ['MON', 'TUE']
+const caps = ['mon', 'tue']
 console.log(capitalizedArray(caps));
 
 
@@ -496,7 +498,7 @@ function sumOfOdds(n){
              sum += i;
         } 
     }
-
+    return sum
 }
 
 const results = sumOfOdds(10)
@@ -510,6 +512,7 @@ function sumOfEven(n){
             sum += i;
         }
     }
+    return sum
 }
 console.log(sumOfEven(10));
 

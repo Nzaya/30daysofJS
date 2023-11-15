@@ -638,7 +638,7 @@ function averageRating(products, productId){
 averageRating(products, 'aegfal')
 
 
-// Create a function called likeProduct. This function will helps to like to the product if it is not liked and remove like if it was liked.
+// Create a function called likeProduct. This functiongit pu will helps to like to the product if it is not liked and remove like if it was liked.
 
 function likeProduct(products, productId, userId){
   //serach for product with id

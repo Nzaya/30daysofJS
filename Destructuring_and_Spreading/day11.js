@@ -10,9 +10,9 @@
 // let [firstPerson, secondPerson, thirdPerson, fourthPerson] = names
 // console.log(firstPerson, secondPerson, thirdPerson, fourthPerson);
 
-const scientificConstants = [2.72, 3.14, 9.81, 37, 100]
-let [e, pi, gravity, bodyTemp, boilingTemp] = scientificConstants
-console.log(e, pi,gravity,bodyTemp,boilingTemp);
+// const scientificConstants = [2.72, 3.14, 9.81, 37, 100]
+// let [e, pi, gravity, bodyTemp, boilingTemp] = scientificConstants
+// console.log(e, pi,gravity,bodyTemp,boilingTemp);
 
 // const fullStack = [
 //     ['HTML', 'CSS', 'JS', 'React'],
@@ -97,14 +97,14 @@ console.log(firstPerson, secondPerson,thirdPerson,fourthPerson);
 // let { width, height, area, perimeter = 60} = rectangle
 // console.log(width, height, area,perimeter);
 
-const Rectangle = {
-    width: 30, 
-    height: 10,
-    area: 200,
-    perimeter: 80
-}
-let { width, height, area, perimeter=60} = Rectangle
-console.log(width,height,area,perimeter);
+// const Rectangle = {
+//     width: 30, 
+//     height: 10,
+//     area: 200,
+//     perimeter: 80
+// }
+// let { width, height, area, perimeter=60} = Rectangle
+// console.log(width,height,area,perimeter);
 
 // Destructuring keys as a function parameters. Let us create a function which takes a rectangle object and it returns a perimeter of a rectangle.
 //* Object parameter without destructuring
@@ -206,20 +206,20 @@ let [num1, num2, num3, ...rest] = nums
 console.log(num1, num2, num3);
 console.log(rest);
 
-const countries = [
-    'Germany',
-    'France',
-    'Belgium',
-    'Finland',
-    'Sweden',
-    'Norway',
-    'Denmark',
-    'Iceland'
-]
-let [gem, fra, , ...nordicCountries] = countries
-console.log(gem);
-console.log(fra);
-console.log(nordicCountries);
+// const countries = [
+//     'Germany',
+//     'France',
+//     'Belgium',
+//     'Finland',
+//     'Sweden',
+//     'Norway',
+//     'Denmark',
+//     'Iceland'
+// ]
+// let [gem, fra, , ...nordicCountries] = countries
+// console.log(gem);
+// console.log(fra);
+// console.log(nordicCountries);
 
 //* Spread operator to copy array
 const evens = [0, 2, 4, 6, 8, 10]
@@ -251,15 +251,15 @@ const copiedUser = {...user}
 console.log(copiedUser);
 
 // Modifying or changing the object while copying
-const users = {
-    name:'Asabeneh',
-  title:'Programmer',
-  country:'Finland',
-  city:'Helsinki'
-}
+// const users = {
+//     name:'Asabeneh',
+//   title:'Programmer',
+//   country:'Finland',
+//   city:'Helsinki'
+// }
 
-const copiedUsers = {...users, title:"instructor"}
-console.log(copiedUsers);
+// const copiedUsers = {...users, title:"instructor"}
+// console.log(copiedUsers);
 
 //* Spread operator with arrow function
 // Whenever we like to write an arrow function which takes unlimited number of arguments we use a spread operator.
@@ -282,137 +282,186 @@ console.log(sumAllNums(1,2,3,4,5));
 
 //! Exercises
 //? Exercises: Level 1
-// const constants = [2.72, 3.14, 9.81, 37, 100]
-// const countries = ['Finland', 'Estonia', 'Sweden', 'Denmark', 'Norway']
-// const rectangle = {
-//   width: 20,
-//   height: 10,
-//   area: 200,
-//   perimeter: 60
-// }
-// const users = [
-// {
-//   name:'Brook',
-//   scores:75,
-//   skills:['HTM', 'CSS', 'JS'],
-//   age:16
-// },
-// {
-//   name:'Alex',
-//   scores:80,
-//   skills:['HTM', 'CSS', 'JS'],
-//   age:18
-// },
-// {
-//   name:'David',
-//   scores:75,
-//   skills:['HTM', 'CSS'],
-//   age:22
-// },
-// {
-//   name:'John',
-//   scores:85,
-//   skills:['HTML'],
-//   age:25
-// },
-// {
-//   name:'Sara',
-//   scores:95,
-//   skills:['HTM', 'CSS', 'JS'],
-//   age: 26
-// },
-// {
-//   name:'Martha',
-//   scores:80,
-//   skills:['HTM', 'CSS', 'JS'],
-//   age:18
-// },
-// {
-//   name:'Thomas',
-//   scores:90,
-//   skills:['HTM', 'CSS', 'JS'],
-//   age:20
-// }
-// ]
 // Destructure and assign the elements of constants array to e, pi, gravity, humanBodyTemp, waterBoilingTemp.
+const constants = [2.72, 3.14, 9.81, 37, 100]
+let [e, pi, gravity, humanBodyTemp, waterBoilingTemp] = constants
+console.log(e, pi, gravity, humanBodyTemp, waterBoilingTemp);
 
 
 // Destructure and assign the elements of countries array to fin, est, sw, den, nor
+const countries = ['Finland', 'Estonia', 'Sweden', 'Denmark', 'Norway']
+let[fin, est, sw, den, nor] = countries
+console.log(fin, est, sw, den, nor);
 
 
 // Destructure the rectangle object by its properties or keys.
+const rectangle = {
+  width: 20,
+  height: 10,
+  area: 200,
+  perimeter: 60
+}
 
+let {width, height, area, perimeter} = rectangle
+console.log(width, height, area, perimeter);
 
 //? Exercises: Level 2
 // Iterate through the users array and get all the keys of the object using destructuring
+const users = [
+  {
+    name:'Brook',
+    scores:75,
+    skills:['HTM', 'CSS', 'JS'],
+    age:16
+  },
+  {
+    name:'Alex',
+    scores:80,
+    skills:['HTM', 'CSS', 'JS'],
+    age:18
+  },
+  {
+    name:'David',
+    scores:75,
+    skills:['HTM', 'CSS'],
+    age:22
+  },
+  {
+    name:'John',
+    scores:85,
+    skills:['HTML'],
+    age:25
+  },
+  {
+    name:'Sara',
+    scores:95,
+    skills:['HTM', 'CSS', 'JS'],
+    age: 26
+  },
+  {
+    name:'Martha',
+    scores:80,
+    skills:['HTM', 'CSS', 'JS'],
+    age:18
+  },
+  {
+    name:'Thomas',
+    scores:90,
+    skills:['HTM', 'CSS', 'JS'],
+    age:20
+  }
+]
+
+for (const user in users){
+  let {name, scores, skills, age} = user
+  console.log("name:" ,name);
+  console.log("scores", scores);
+  console.log("skills", skills);
+  console.log("age", age);
+}
 
 
 // Find the persons who have less than two skills
-
+const lessThanTwoSkills = users.filter(user => user.skills.length < 2)
+console.log(lessThanTwoSkills);
 
 //? Exercises: Level 3
 // Destructure the countries object print name, capital, population and languages of all countries
 
 
 // A junior developer structure student name, skills and score in array of arrays which may not easy to read.
-//  Destructure the following array name to name, skills array to skills, scores array to scores, JavaScript score to jsScore and React score to reactScore variable in one line.
+//  Destructure the following array name to name, skills array to skills, scores array to scores, JavaScript score to jsScore and React score to reactScore variable in one line
+const student = ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]]
 
-
-//   const student = ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]]
-//   console.log(name, skills, jsScore, reactScore)
-
+const [name, skills, [jsScore, , , reactScore]] = student;
+console.log(name, skills, jsScore, reactScore)
 // David (4) ["HTM", "CSS", "JS", "React"] 90 95
 
 
 // Write a function called convertArrayToObject which can convert the array to a structure object.
 
-//     const students = [
-//         ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]],
-//         ['John', ['HTM', 'CSS', 'JS', 'React'], [85, 80, 85, 80]]
-//       ]
+    const students = [
+        ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]],
+        ['John', ['HTM', 'CSS', 'JS', 'React'], [85, 80, 85, 80]]
+      ]
 
-//     console.log(convertArrayToObject(students))
-//     [
-//       {
-//         name: 'David',
-//         skills: ['HTM','CSS','JS','React'],
-//         scores: [98,85,90,95]
-//       },
-//       {
-//         name: 'John',
-//         skills: ['HTM','CSS','JS','React'],
-//         scores: [85, 80,85,80]
-//       }
-//     ]
+      function convertArrayToObject(students){
+        const convertedArray = []
+        for(const student in students){
+          let [name, skills, scores] = student
+          // const studentObject = {
+          //   name: name,
+          //   skills: skills,
+          //   scores: {
+          //     html: scores[0],
+          //     css: scores[1],
+          //     js: scores[2],
+          //     react: scores[3]
+          //   }
+          // }
+          // convertedArray.push(studentObject)
+        }
+        return convertedArray
+      }
+      const convertedStudents = convertArrayToObject(students)
+      console.log(convertedStudents);
+
+
+
+    // console.log(convertArrayToObject(students))
+    // [
+    //   {
+    //     name: 'David',
+    //     skills: ['HTM','CSS','JS','React'],
+    //     scores: [98,85,90,95]
+    //   },
+    //   {
+    //     name: 'John',
+    //     skills: ['HTM','CSS','JS','React'],
+    //     scores: [85, 80,85,80]
+    //   }
+    // ]
 
 
 // Copy the student object to newStudent without mutating the original object. In the new object add the following ?
 
+const Student = {
+      name: 'David',
+      age: 25,
+      skills: {
+        frontEnd: [
+          { skill: 'HTML', level: 10 },
+          { skill: 'CSS', level: 8 },
+          { skill: 'JS', level: 8 },
+          { skill: 'React', level: 9 }
+        ],
+        backEnd: [
+          { skill: 'Node',level: 7 },
+          { skill: 'GraphQL', level: 8 },
+        ],
+        dataBase:[
+          { skill: 'MongoDB', level: 7.5 },
+        ],
+        dataScience:['Python', 'R', 'D3.js']
+      }
+}
+
+let newStudents = {...Student}
+
 
 // Add Bootstrap with level 8 to the front end skill sets
+newStudents.skills.frontEnd.push({skill: 'Bootstrap', level: 8})
+
 // Add Express with level 9 to the back end skill sets
+newStudents.skills.backEnd.push({skill: 'Express', level: 9})
+
 // Add SQL with level 8 to the data base skill sets
+newStudents.skills.dataBase.push({skill: 'SQL', level: 8})
+
 // Add SQL without level to the data science skill sets
-//     const student = {
-//       name: 'David',
-//       age: 25,
-//       skills: {
-//         frontEnd: [
-//           { skill: 'HTML', level: 10 },
-//           { skill: 'CSS', level: 8 },
-//           { skill: 'JS', level: 8 },
-//           { skill: 'React', level: 9 }
-//         ],
-//         backEnd: [
-//           { skill: 'Node',level: 7 },
-//           { skill: 'GraphQL', level: 8 },
-//         ],
-//         dataBase:[
-//           { skill: 'MongoDB', level: 7.5 },
-//         ],
-//         dataScience:['Python', 'R', 'D3.js']
-//       }
-//     }
+newStudents.skills.dataScience.push('SQL')
+
+console.log(newStudents);
 
 
 // The copied object output should look like this:

@@ -116,7 +116,7 @@
 // const namesToUpperCase = names.map((name) => name.toUpperCase())
 // console.log(namesToUpperCase);
 
-// const countries = ['Albania','Bolivia','Canada','Denmark','Ethiopia','Finland','Germany','Hungary','Ireland','Japan','Kenya',]
+// const countries = ['Albania','Bolivia','Canada','Denmark','Ethiopia','Finland','Germany','Hungary','Ireland','Japan','Kenya']
 
 // const countriesToUpperCase = countries.map((country)=> country.toUpperCase())
 // console.log(countriesToUpperCase);
@@ -274,6 +274,7 @@
 //! 💻 Exercises
 //? Exercises: Level 1
 const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
+const countries = ['Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const products = [
   { product: 'banana', price: 3 },
@@ -326,38 +327,59 @@ numbers.forEach((number) => console.log(number))
 
 // Use map to create a new array by changing each country to uppercase in the countries array.
 
-toUpper = countries.map((country) => console.log(country.toUpperCase()))
-console.log(toUpper);
-
+toUpper = countries.map((country) => {console.log(country.toUpperCase())})
 
 // Use map to create an array of countries length from countries array.
-const countries = ['Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
 countriesLength = countries.map((country) => country.length)
 console.log(countriesLength);     
 
 // Use map to create a new array by changing each number to square in the numbers array
 
+numSquare = numbers.map((num) => num * num)
+console.log(numSquare);
+
 
 // Use map to change to each name to uppercase in the names array
 
+namesUpper = names.map((name)=> name.toUpperCase())
+console.log(namesUpper);
 
 // Use map to map the products array to its corresponding prices.
+
+prodPrice = products.map((prod) => {
+  prodd = prod.product;
+  price = prod.price;
+  console.log(`${prodd} is ${price}`);
+})
 
 
 // Use filter to filter out countries containing land.
 
+countriesLand = countries.filter((country) => country.includes('land'))
+console.log(countriesLand);
+
 
 // Use filter to filter out countries having six character.
+
+sixChar = countries.filter((country) => country.length === 6)
+console.log(sixChar);
 
 
 // Use filter to filter out countries containing six letters and more in the country array.
 
+moreSix = countries.filter((country) => country.length >= 6)
+console.log(moreSix);
 
 // Use filter to filter out country start with 'E';
+
+eCountry = countries.filter((country) => country.startsWith('E'))
+console.log(eCountry);
 
 
 // Use filter to filter out only prices with values.
 
+priceVal = products.filter((prod) => typeof prod.price  === 'number')
+console.log(priceVal);
 
 // Declare a function called getStringLists which takes an array as a parameter and then returns an array only with string items.
 

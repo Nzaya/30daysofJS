@@ -270,16 +270,50 @@ const user = {
   console.log(text)
 
 //!   Exercises
+//? Exercises Level 1
+// Change skills array to JSON using JSON.stringify()
 const skills = ['HTML', 'CSS', 'JS', 'React','Node', 'Python']
+const skillsJSON = JSON.stringify(skills)
+console.log("skillsJSON",skillsJSON);
+
+
+
+// Stringify the age variable
 let age = 250;
+let stringAge = JSON.stringify(age)
+console.log("stringAge",stringAge);
+
+// Stringify the isMarried variable
 let isMarried = true
+let marriedString = JSON.stringify(isMarried)
+console.log("marriedString",marriedString);
+
+
+// Stringify the student object
 const student = {
-  firstName:'Asabeneh',
-  lastName:'Yetayehe',
-  age:250,
-  isMarried:true,
-  skills:['HTML', 'CSS', 'JS', 'React','Node', 'Python', ]
-}
+    firstName:'Asabeneh',
+    lastName:'Yetayehe',
+    age:250,
+    isMarried:true,
+    skills:['HTML', 'CSS', 'JS', 'React','Node', 'Python', ]
+  }
+
+  const studentString = JSON.stringify(student)
+  console.log("studentString",studentString);
+
+//? Exercises Level 2
+// Stringify the students object with only firstName, lastName and skills properties
+  const studentSubset = {
+    firstName: student.firstName,
+    lastName: student.lastName,
+    skills: student.skills
+  }
+
+  const studentSubString = JSON.stringify(studentSubset)
+  console.log("studentSubString",studentSubString);
+
+//? Exercises Level 3
+// Parse the txt JSON to object.
 const txts = `{
     "Alex": {
         "email": "alex@alex.com",
@@ -377,25 +411,22 @@ const txts = `{
 }
 `
 
-//? Exercises Level 1
-// Change skills array to JSON using JSON.stringify()
-
-
-// Stringify the age variable
-
-
-// Stringify the isMarried variable
-
-
-// Stringify the student object
-
-
-//? Exercises Level 2
-// Stringify the students object with only firstName, lastName and skills properties
-
-
-//? Exercises Level 3
-// Parse the txt JSON to object.
+const txtsObject = JSON.parse(txts)
+console.log("txtsObject",txtsObject);
 
 
 // Find the user who has many skills from the variable stored in txt.
+let maxSkills = 0;
+let userWIthMaxSkills = '';
+
+for(const user in txts){
+    if(txts[user].skills){
+        const numSkills = txts[user].skills.length;
+        if(numSkills > maxSkills){
+            maxSkills = numSkills
+            userWIthMaxSkills = user
+        }
+    }
+}
+
+console.log(`User with the most skills: ${userWIthMaxSkills} (${maxSkills} skills)`);
